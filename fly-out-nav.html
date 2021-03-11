@@ -7,12 +7,17 @@
   <title>Fly out menu, go 2</title>
 
   <style>
-    body { background-color: #ddd; margin: 0; }
-    ul { list-style: none; padding-left: 0 }
+    body { background-color: #ddd; margin: 0; font-family: sans-serif; font-size: 0.875rem; }
+    ul { list-style: none; padding: 0; margin: 0;}
+    a { text-decoration: none; }
 
     :root {
       --fly-out-icon-side: 60px;
       --top-nav-height: 60px;
+      --colour-accent: rgb(206, 72, 26);
+      --colour-text-primary: rgb(52, 67, 74);
+      --colour-furniture: rgb(207, 216, 220);
+      font-size: 100%;
     }
 
     .grid {
@@ -33,11 +38,16 @@
       grid-column: 2 / 4;
     }
 
+    .fly-out-menu {
+      grid-row: 1 / 4;
+    }
+
     .fly-out-link {
       background-color: white;
       height: var(--fly-out-icon-side);
       display: flex;
       align-items: center;
+      justify-content: center;
     }
 
     .top-nav {
@@ -58,28 +68,79 @@
       padding-left: 12px;
       padding-right: 12px;
     }
+
+    .button {
+      background-color: var(--colour-accent);
+      color: white;
+      border-radius: 6px;
+      padding: 6px 8px 5px;
+    }
+    .button--feedback {
+      margin-top: auto;
+    }
+
+    .fly-out-menu {
+      background-color: var(--colour-text-primary);
+      padding: 24px;
+      color: white;
+      height: 100vh;
+    }
+
+    .fly-out-menu-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100%;
+    }
+
+    .fly-out-menu-list li {
+      flex-basis: 24px;
+    }
+
+    .fly-out-menu-list li:last-child {
+      margin-top: auto;
+      align-self: center;
+    }
+
+    .fly-out-menu a {
+      color: inherit
+    }
+
+    .main-content__whatever {
+      margin: 24px;
+      padding: 24px;
+      background-color: white;
+      border: 1px soild var(--colour-furniture);
+      border-radius: 6px;
+      height: 50vh;
+    }
+
   </style>
 
 </head>
 <body>
 
 <div class="grid">
-  <a href="#fly-out-menu" class="fly-out-link"><img src="lines" alt="Toggle"></a>
+  <a href="#fly-out-menu" class="fly-out-link"><img src="images/menu.svg" alt="Toggle menu"></a>
   <nav id="fly-out-menu" class="fly-out-menu">
-    <ul role="list">
-      <li><a href="#home"><img src="logo" alt="Home "></a></li>
+    <ul role="list" class="fly-out-menu-list">
+      <li><a href="#home"><img src="./images/logo-small.svg" alt="Home "></a></li>
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#feedback">Feedback</a></li>
+      <li><a href="#feedback" class="button button--feedback">Feedback</a></li>
     </ul>
   </nav>
   <nav class="top-nav">
     <ul role="list" class="top-nav-list">
-      <li><a href="#about">About</a></li>
-      <li><a href="#login">Log in</a></li>
+      <li><a href="#search"><img src="./images/baseline-search-24px.svg" alt="Search"></a></li>
+      <li><a href="#login" class="button button--login">Log in</a></li>
     </ul>
   </nav>
-  <main class="main-content">Main content</main>
+  <main class="main-content">
+    <div class="main-content__whatever">
+      <p>Main content with <a href="#">some link</a>.</p>
+    </div>
+  </main>
 </div>
 
 </body>
