@@ -1,0 +1,10 @@
+@use 'settings';
+
+@mixin transition($property) {
+  transition: $property settings.$transition-duration settings.$timing-function;
+}
+
+@mixin top-nav-aesthetic() {
+  background-color: white;
+  height: settings.$fly-out-icon-side;
+}

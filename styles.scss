@@ -1,25 +1,19 @@
 @use 'settings';
+@use 'mixins';
 @use 'normalise';
 @use 'grid';
-
-@mixin transition($property) {
-  transition: $property settings.$transition-duration settings.$timing-function;
-}
-
-@mixin top-nav-aesthetic() {
-  background-color: white;
-  height: settings.$fly-out-icon-side;
-}
 
 body {
   background-color: settings.$colour-page-background;
 }
 
-.grid {
+.page-container {
+  // While the menu is offscreen, stretch page-container across to the left hand side to take up the space
   margin-left: settings.$flyout-menu-offscreen-offset;
-  @include transition(margin-left);
+  @include mixins.transition(margin-left);
 
   @media screen and (min-width: settings.$breakpoint) {
+    // When the menu is displayed, move the page-container back out of the way
     margin-left: 0;
   }
 }
@@ -27,23 +21,26 @@ body {
 .fly-out-menu {
   padding: settings.$flyout-menu-side-padding;
   width: settings.$flyout-menu-width;
+
+  // $flyout-menu-offscreen-offset being negative ensures the menu is offscreen
   transform: translateX(settings.$flyout-menu-offscreen-offset);
-  @include transition(transform);
+  @include mixins.transition(transform);
 
   @media screen and (min-width: settings.$breakpoint) {
+    // Reset the translation when the viewport's wide enough to show the menu
     transform: translateX(0);
   }
 }
 
-.fly-out-link {
-  @include top-nav-aesthetic();
+.fly-out-toggle {
+  @include mixins.top-nav-aesthetic();
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .top-nav {
-  @include top-nav-aesthetic();
+  @include mixins.top-nav-aesthetic();
   display: flex;
   align-items: center;
 }
@@ -99,7 +96,7 @@ body {
   margin: 24px;
   padding: 24px;
   background-color: white;
-  border: 1px soild settings.$colour-furniture;
+  border: 1px solid settings.$colour-furniture;
   border-radius: 6px;
   height: 50vh;
 
