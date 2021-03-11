@@ -40,10 +40,19 @@
       transition: width var(--transition-duration) var(--timing-function);
     }
 
+    .fly-out-menu a {
+      /* Deliberately make the links non-tabbable when the menu is collapsed */
+      display: contents;
+    }
+
     @media screen and (min-width: 720px) {
       .fly-out-menu {
         padding: var(--flyout-menu-side-padding);
         width: var(--flyout-menu-width);
+      }
+      .fly-out-menu a {
+        /* Restore the tabbalble nature of the links once the menu is displayed*/
+        display: unset;
       }
     }
 
