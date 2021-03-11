@@ -1,75 +1,49 @@
-body { background-color: #ddd; margin: 0; font-family: sans-serif; font-size: 0.875rem; }
-ul { list-style: none; padding: 0; margin: 0;}
-a { text-decoration: none; }
+@use 'settings';
+@use 'normalise';
+@use 'grid';
 
-  $fly-out-icon-side: 60px;
-  $top-nav-height: 60px;
-  $colour-accent: rgb(206, 72, 26);
-  $colour-text-primary: rgb(52, 67, 74);
-  $colour-furniture: rgb(207, 216, 220);
-  $flyout-menu-width: 200px;
-  $flyout-menu-side-padding: 24px;
+@mixin transition($property) {
+  transition: $property settings.$transition-duration settings.$timing-function;
+}
 
-  $transition-duration: 125ms;
-  $timing-function: ease-in-out;
+@mixin top-nav-aesthetic() {
+  background-color: white;
+  height: settings.$fly-out-icon-side;
+}
 
-html {
-  font-size: 100%;
-  box-sizing: border-box;
+body {
+  background-color: settings.$colour-page-background;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: auto $fly-out-icon-side 1fr;
-  margin-left: -248px;
-  transition: margin-left $transition-duration $timing-function;
+  margin-left: settings.$flyout-menu-offscreen-offset;
+  @include transition(margin-left);
+
+  @media screen and (min-width: settings.$breakpoint) {
+    margin-left: 0;
+  }
 }
 
 .fly-out-menu {
-  padding: $flyout-menu-side-padding;
-  width: $flyout-menu-width;
-  transform: translateX(-248px);
-  transition: transform $transition-duration $timing-function;
-}
+  padding: settings.$flyout-menu-side-padding;
+  width: settings.$flyout-menu-width;
+  transform: translateX(settings.$flyout-menu-offscreen-offset);
+  @include transition(transform);
 
-@media screen and (min-width: 720px) {
-  .grid {
-    margin-left: 0;
-  }
-  .fly-out-menu {
+  @media screen and (min-width: settings.$breakpoint) {
     transform: translateX(0);
   }
 }
 
 .fly-out-link {
-  order: 2;
-}
-.fly-out-menu {
-  order: 1;
-}
-.top-nav {
-  order: 3;
-}
-.main-content {
-  grid-row: 2;
-  grid-column: 2 / 4;
-}
-
-.fly-out-menu {
-  grid-row: 1 / 4;
-}
-
-.fly-out-link {
-  background-color: white;
-  height: $fly-out-icon-side;
+  @include top-nav-aesthetic();
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .top-nav {
-  background-color: white;
-  height: $fly-out-icon-side;
+  @include top-nav-aesthetic();
   display: flex;
   align-items: center;
 }
@@ -87,19 +61,21 @@ html {
 }
 
 .button {
-  background-color: $colour-accent;
+  background-color: settings.$colour-accent;
   color: white;
   border-radius: 6px;
   padding: 6px 8px 5px;
 }
-.button--feedback {
-  margin-top: auto;
-}
 
 .fly-out-menu {
-  background-color: $colour-text-primary;
+  background-color: settings.$colour-text-primary;
   color: white;
   height: 100vh;
+
+  & a {
+    color: inherit;
+    width: inherit;
+  }
 }
 
 .fly-out-menu-list {
@@ -107,27 +83,23 @@ html {
   flex-direction: column;
   justify-content: flex-start;
   height: 95%;
+
+  & > li {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-top: auto;
+      align-self: center;
+    }
+  }
 }
 
-.fly-out-menu-list li {
-  margin-bottom: 24px;
-}
-
-.fly-out-menu-list li:last-child {
-  margin-top: auto;
-  align-self: center;
-}
-
-.fly-out-menu a {
-  color: inherit;
-  width: inherit;
-}
-
+// Arbitrary, could be anything
 .main-content__whatever {
   margin: 24px;
   padding: 24px;
   background-color: white;
-  border: 1px soild $colour-furniture;
+  border: 1px soild settings.$colour-furniture;
   border-radius: 6px;
   height: 50vh;
 

@@ -1,0 +1,27 @@
+@use 'settings';
+
+.grid {
+  display: grid;
+  grid-template-columns: auto settings.$fly-out-icon-side 1fr;
+}
+
+.fly-out-link {
+  order: 2;
+}
+
+.fly-out-menu {
+  order: 1;
+}
+
+.top-nav {
+  order: 3;
+}
+
+.fly-out-menu {
+  grid-row: 1 / 4;
+}
+
+.main-content {
+  grid-row: 2;
+  grid-column: 2 / 4;
+}
