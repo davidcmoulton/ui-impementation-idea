@@ -20,8 +20,8 @@
       --flyout-menu-width: 200px;
       --flyout-menu-side-padding: 24px;
 
-      --transition-duration: 100ms;
-      --timing-function: linear;
+      --transition-duration: 125ms;
+      --timing-function: ease-in-out;
 
       font-size: 100%;
       box-sizing: border-box;
@@ -30,29 +30,23 @@
     .grid {
       display: grid;
       grid-template-columns: auto var(--fly-out-icon-side) 1fr;
+      margin-left: -248px;
+      transition: margin-left var(--transition-duration) var(--timing-function);
     }
 
     .fly-out-menu {
-      width: 0;
-      will-change: width;
-      padding: var(--flyout-menu-side-padding) 0;
-      overflow: hidden;
-      transition: width var(--transition-duration) var(--timing-function);
-    }
-
-    .fly-out-menu a {
-      /* Deliberately make the links non-tabbable when the menu is collapsed */
-      display: contents;
+      padding: var(--flyout-menu-side-padding);
+      width: var(--flyout-menu-width);
+      transform: translateX(-248px);
+      transition: transform var(--transition-duration) var(--timing-function);
     }
 
     @media screen and (min-width: 720px) {
-      .fly-out-menu {
-        padding: var(--flyout-menu-side-padding);
-        width: var(--flyout-menu-width);
+      .grid {
+        margin-left: 0;
       }
-      .fly-out-menu a {
-        /* Restore the tabbalble nature of the links once the menu is displayed*/
-        display: unset;
+      .fly-out-menu {
+        transform: translateX(0);
       }
     }
 
