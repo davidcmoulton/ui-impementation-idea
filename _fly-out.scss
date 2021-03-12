@@ -1,0 +1,60 @@
+@use 'settings';
+@use 'mixins';
+
+.page-container {
+  @include mixins.transition(margin-left);
+}
+
+.page-container,
+.page-container[data-menu-shown="false"] {
+  // While the menu is offscreen, stretch page-container across to the left hand side to take up the space
+  margin-left: settings.$flyout-menu-offscreen-offset;
+}
+
+.page-container[data-menu-shown="true"] {
+  // When the menu is displayed, move the page-container back out of the way to the right
+  margin-left: 0;
+}
+
+.fly-out-menu {
+  padding: settings.$flyout-menu-side-padding;
+  width: settings.$flyout-menu-width;
+
+  // negative translation ensures the menu is offscreen
+  transform: translateX(settings.$flyout-menu-offscreen-offset);
+  @include mixins.transition(transform);
+}
+
+.page-container[data-menu-shown="true"] .fly-out-menu {
+  // Reset the translation when the viewport's wide enough to show the menu
+  transform: translateX(0);
+}
+
+@media screen and (min-width: settings.$breakpoint) {
+  .page-container {
+    &:not([data-menu-shown="false"]) {
+      // When the menu is displayed, move the page-container back out of the way to the right
+      margin-left: 0;
+
+      & .fly-out-menu {
+        // Reset the translation when the viewport's wide enough to show the menu
+        transform: translateX(0);
+        & a {
+          display: unset;
+        }
+      }
+    }
+  }
+}
+
+.fly-out-menu {
+  & a {
+    // Prevent links being tabable on offscreen menu. Is there a better way?
+    display: none;
+
+    .page-container[data-menu-shown="true"] & {
+      // reinstate tabbable links on displayed menu
+      display: unset;
+    }
+  }
+}
