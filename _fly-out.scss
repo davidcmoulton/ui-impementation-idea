@@ -1,8 +1,11 @@
 @use 'settings';
-@use 'mixins';
+
+@mixin transition($property) {
+  transition: $property settings.$transition-duration settings.$timing-function;
+}
 
 .page-container {
-  @include mixins.transition(margin-left);
+  @include transition(margin-left);
 }
 
 .page-container,
@@ -22,7 +25,7 @@
 
   // negative translation ensures the menu is offscreen
   transform: translateX(settings.$flyout-menu-offscreen-offset);
-  @include mixins.transition(transform);
+  @include transition(transform);
 }
 
 .page-container[data-menu-shown="true"] .fly-out-menu {

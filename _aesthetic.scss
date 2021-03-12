@@ -1,0 +1,80 @@
+@use 'settings';
+
+@mixin top-nav-aesthetic() {
+  background-color: white;
+  height: settings.$fly-out-icon-side;
+}
+
+body {
+  background-color: settings.$colour-page-background;
+}
+
+.fly-out-toggle {
+  @include top-nav-aesthetic();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-nav {
+  @include top-nav-aesthetic();
+  display: flex;
+  align-items: center;
+}
+
+.top-nav-list {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.top-nav-list li {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.button {
+  background-color: settings.$colour-accent;
+  color: white;
+  border-radius: 6px;
+  padding: 6px 8px 5px;
+}
+
+.fly-out-menu {
+  background-color: settings.$colour-text-primary;
+  color: white;
+  height: 100vh;
+
+  & a {
+    color: inherit;
+    width: inherit;
+  }
+}
+
+.fly-out-menu-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 95%;
+
+  & > li {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-top: auto;
+      align-self: center;
+    }
+  }
+}
+
+// Arbitrary, could be anything
+.main-content__whatever {
+  margin: 24px;
+  padding: 24px;
+  background-color: white;
+  border: 1px solid settings.$colour-furniture;
+  border-radius: 6px;
+  height: 50vh;
+
+}
