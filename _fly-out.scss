@@ -1,5 +1,29 @@
 @use 'settings';
 
+@mixin hide-menu() {
+  margin-left: settings.$flyout-menu-offscreen-offset;
+
+  .fly-out-menu {
+    transform: translateX(settings.$flyout-menu-offscreen-offset);
+
+    a {
+      display: none;
+    }
+  }
+}
+
+@mixin show-menu() {
+  margin-left: 0;
+
+  .fly-out-menu {
+    transform: translateX(0);
+
+    a {
+      display: unset;
+    }
+  }
+}
+
 @mixin transition($property) {
   transition: $property settings.$transition-duration settings.$timing-function;
 }
@@ -12,73 +36,20 @@
   @include transition(transform);
 }
 
-// Use cases:
-
-// The menu is offscreen because the viewport is narrow and the user hasn't interacted with the menu control yet
-.page-container {
-  margin-left: settings.$flyout-menu-offscreen-offset;
-
-  .fly-out-menu {
-    transform: translateX(settings.$flyout-menu-offscreen-offset);
-
-    a {
-      display: none;
-    }
-  }
-}
-
-// The menu is offscreen because the user has dismissed it
+// The viewport is narrow and the user hasn't interacted with the menu control yet, or the user has dismissed it
+.page-container,
 .page-container[data-menu-shown="false"] {
-  margin-left: settings.$flyout-menu-offscreen-offset;
-
-  .fly-out-menu {
-    transform: translateX(settings.$flyout-menu-offscreen-offset);
-
-    a {
-      display: none;
-    }
-  }
+  @include hide-menu();
 }
 
-// The menu is offscreen because the viewport is wide and the user has dismissed it
-.page-container:not([data-menu-shown="false"]) {
-  @media screen and (min-width: settings.$breakpoint) {
-    margin-left: 0;
-
-    .fly-out-menu {
-      transform: translateX(0);
-
-      a {
-        display: unset;
-      }
-    }
-  }
-}
-
-// The menu is displayed because the user has invoked it,
+// The user has invoked the menu
 .page-container[data-menu-shown="true"] {
-  margin-left: 0;
-
-  .fly-out-menu {
-    transform: translateX(0);
-
-    a {
-      display: unset;
-    }
-  }
+  @include show-menu();
 }
 
-// The menu is displayed because the viewport is wide and the user hasn't dismissed it
-@media screen and (min-width: settings.$breakpoint) {
-  .page-container:not([data-menu-shown="false"]) {
-    margin-left: 0;
-
-    .fly-out-menu {
-      transform: translateX(0);
-
-      a {
-        display: unset;
-      }
-    }
+// The viewport is wide and the user hasn't dismissed it
+.page-container:not([data-menu-shown="false"]) {
+    @media screen and (min-width: settings.$breakpoint) {
+      @include show-menu();
   }
 }
