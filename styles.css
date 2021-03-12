@@ -85,6 +85,8 @@ body {
   background-color: #34434a;
   color: white;
   height: 100vh;
+  padding: 24px;
+  width: 200px;
 }
 .fly-out-menu a {
   color: inherit;
@@ -95,6 +97,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  height: 95%;
 }
 .fly-out-menu-list > li {
   margin-bottom: 24px;
@@ -115,20 +118,21 @@ body {
 
 .page-container {
   transition: margin-left 200ms ease-in-out;
+  margin-left: -248px;
 }
-
-.page-container,
 .page-container[data-menu-shown=false] {
   margin-left: -248px;
 }
-
 .page-container[data-menu-shown=true] {
   margin-left: 0;
 }
+@media screen and (min-width: 720px) {
+  .page-container:not([data-menu-shown=false]) {
+    margin-left: 0;
+  }
+}
 
 .fly-out-menu {
-  padding: 24px;
-  width: 200px;
   transform: translateX(-248px);
   transition: transform 200ms ease-in-out;
 }
@@ -138,9 +142,6 @@ body {
 }
 
 @media screen and (min-width: 720px) {
-  .page-container:not([data-menu-shown=false]) {
-    margin-left: 0;
-  }
   .page-container:not([data-menu-shown=false]) .fly-out-menu {
     transform: translateX(0);
   }

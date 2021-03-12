@@ -45,6 +45,8 @@ body {
   background-color: settings.$colour-text-primary;
   color: white;
   height: 100vh;
+  padding: settings.$flyout-menu-side-padding;
+  width: settings.$flyout-menu-width;
 
   & a {
     color: inherit;
@@ -56,7 +58,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  //height: 95%;
+  height: 95%;
 
   & > li {
     margin-bottom: 24px;
