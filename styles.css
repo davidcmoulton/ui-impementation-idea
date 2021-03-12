@@ -48,13 +48,16 @@ body {
 }
 
 .page-container {
-  margin-left: -248px;
   transition: margin-left 200ms ease-in-out;
 }
-@media screen and (min-width: 720px) {
-  .page-container {
-    margin-left: 0;
-  }
+
+.page-container,
+.page-container[data-menu-shown=false] {
+  margin-left: -248px;
+}
+
+.page-container[data-menu-shown=true] {
+  margin-left: 0;
 }
 
 .fly-out-menu {
@@ -63,12 +66,19 @@ body {
   transform: translateX(-248px);
   transition: transform 200ms ease-in-out;
 }
+
+.page-container[data-menu-shown=true] .fly-out-menu {
+  transform: translateX(0);
+}
+
 @media screen and (min-width: 720px) {
-  .fly-out-menu {
+  .page-container:not([data-menu-shown=false]) {
+    margin-left: 0;
+  }
+  .page-container:not([data-menu-shown=false]) .fly-out-menu {
     transform: translateX(0);
   }
 }
-
 .fly-out-toggle {
   background-color: white;
   height: 60px;
