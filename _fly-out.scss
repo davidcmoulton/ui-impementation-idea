@@ -4,6 +4,8 @@
   transition: $property settings.$transition-duration settings.$timing-function;
 }
 
+// TODO: Can the sass rules be structured to more reflect use cases?
+
 .page-container {
   @include transition(margin-left);
   // While the menu is offscreen because the viewport is narrow and the user hasn't interacted with the menu control yet,
@@ -31,7 +33,6 @@
   }
 }
 
-// TODO: Change language in comments below to be more imperative
 .fly-out-menu {
   // While the menu is offscreen because the viewport is narrow and the user hasn't interacted with the menu control yet,
   //  move the menu offscreen with negative translation
