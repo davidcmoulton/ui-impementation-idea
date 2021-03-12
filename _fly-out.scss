@@ -4,75 +4,81 @@
   transition: $property settings.$transition-duration settings.$timing-function;
 }
 
-// TODO: Can the sass rules be structured to more reflect use cases?
-
 .page-container {
   @include transition(margin-left);
-  // While the menu is offscreen because the viewport is narrow and the user hasn't interacted with the menu control yet,
-  //  stretch page-container across to the left hand side to take up the space
+}
+
+.fly-out-menu {
+  @include transition(transform);
+}
+
+// Use cases:
+
+// The menu is offscreen because the viewport is narrow and the user hasn't interacted with the menu control yet
+.page-container {
   margin-left: settings.$flyout-menu-offscreen-offset;
 
-  &[data-menu-shown="false"] {
-    // While the menu is offscreen because the user has dismissed it,
-    //  stretch page-container across to the left hand side to take up the space
-     margin-left: settings.$flyout-menu-offscreen-offset;
-  }
+  .fly-out-menu {
+    transform: translateX(settings.$flyout-menu-offscreen-offset);
 
-  &[data-menu-shown="true"] {
-    // When the menu is displayed because the user has invoked it,
-    //  move the page-container back out of the way to the right
-    margin-left: 0;
-  }
-
-  @media screen and (min-width: settings.$breakpoint) {
-    &:not([data-menu-shown="false"]) {
-      // When the viewport is wide, and the user has dismissed the menu,
-      //  move the page-container back out of the way to the right
-      margin-left: 0;
+    a {
+      display: none;
     }
   }
 }
 
-.fly-out-menu {
-  // While the menu is offscreen because the viewport is narrow and the user hasn't interacted with the menu control yet,
-  //  move the menu offscreen with negative translation
-  transform: translateX(settings.$flyout-menu-offscreen-offset);
-  @include transition(transform);
+// The menu is offscreen because the user has dismissed it
+.page-container[data-menu-shown="false"] {
+  margin-left: settings.$flyout-menu-offscreen-offset;
+
+  .fly-out-menu {
+    transform: translateX(settings.$flyout-menu-offscreen-offset);
+
+    a {
+      display: none;
+    }
+  }
 }
 
-.page-container[data-menu-shown="true"] .fly-out-menu {
-  // When the menu is displayed because the user has invoked it,
-  //  bring the menu back on screen by resetting the translation
-  transform: translateX(0);
-}
+// The menu is offscreen because the viewport is wide and the user has dismissed it
+.page-container:not([data-menu-shown="false"]) {
+  @media screen and (min-width: settings.$breakpoint) {
+    margin-left: 0;
 
-@media screen and (min-width: settings.$breakpoint) {
-  .page-container {
-    &:not([data-menu-shown="false"]) {
-      // // When the viewport is wide, and the user has dismissed the menu, When the menu is displayed, move the page-container back out of the way to the right
-      //margin-left: 0;
+    .fly-out-menu {
+      transform: translateX(0);
 
-      & .fly-out-menu {
-        // when the viewport is wide, and the user has not dismissed the menu,
-        // show the menu by resetting the translation
-        transform: translateX(0);
-        & a {
-          // Must be able to tab to menu links when on screen
-          display: unset;
-        }
+      a {
+        display: unset;
       }
     }
   }
 }
 
-.fly-out-menu {
-  & a {
-    // Must not be able to tab to menu links when off screen
-    display: none;
+// The menu is displayed because the user has invoked it,
+.page-container[data-menu-shown="true"] {
+  margin-left: 0;
 
-    .page-container[data-menu-shown="true"] & {
-      // Must be able to tab to menu links when on screen
+  .fly-out-menu {
+    transform: translateX(0);
+
+    a {
       display: unset;
+    }
+  }
+}
+
+// The menu is displayed because the viewport is wide and the user hasn't dismissed it
+@media screen and (min-width: settings.$breakpoint) {
+  .page-container:not([data-menu-shown="false"]) {
+    margin-left: 0;
+
+    .fly-out-menu {
+      transform: translateX(0);
+
+      a {
+        display: unset;
+      }
     }
   }
 }
