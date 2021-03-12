@@ -95,7 +95,7 @@ body {
     width: inherit;
 
     // Prevent links being tabable on offscreen menu. Is there a better way?
-    display: contents;
+    display: none;
 
     .page-container[data-menu-shown="true"] & {
       // reinstate tabbable links on displayed menu

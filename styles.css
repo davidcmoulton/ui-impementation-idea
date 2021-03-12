@@ -124,7 +124,7 @@ body {
 .fly-out-menu a {
   color: inherit;
   width: inherit;
-  display: contents;
+  display: none;
 }
 .page-container[data-menu-shown=true] .fly-out-menu a {
   display: unset;
