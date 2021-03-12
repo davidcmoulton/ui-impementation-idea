@@ -29,7 +29,7 @@
 }
 
 .page-container[data-menu-shown="true"] .fly-out-menu {
-  // Reset the translation when the viewport's wide enough to show the menu
+  // Reset the translation to bring the menu back on screen
   transform: translateX(0);
 }
 
@@ -52,11 +52,10 @@
 
 .fly-out-menu {
   & a {
-    // Prevent links being tabable on offscreen menu. Is there a better way?
     display: none;
 
     .page-container[data-menu-shown="true"] & {
-      // reinstate tabbable links on displayed menu
+      // reinstate tabbable links when the menu is displayed
       display: unset;
     }
   }
