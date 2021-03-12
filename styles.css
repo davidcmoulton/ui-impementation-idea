@@ -78,6 +78,9 @@ body {
   .page-container:not([data-menu-shown=false]) .fly-out-menu {
     transform: translateX(0);
   }
+  .page-container:not([data-menu-shown=false]) .fly-out-menu a {
+    display: unset;
+  }
 }
 .fly-out-toggle {
   background-color: white;
@@ -121,6 +124,10 @@ body {
 .fly-out-menu a {
   color: inherit;
   width: inherit;
+  display: contents;
+}
+.page-container[data-menu-shown=true] .fly-out-menu a {
+  display: unset;
 }
 
 .fly-out-menu-list {

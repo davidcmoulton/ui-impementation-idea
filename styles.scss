@@ -37,13 +37,18 @@ body {
 }
 
 @media screen and (min-width: settings.$breakpoint) {
-  .page-container:not([data-menu-shown="false"]) {
-    // When the menu is displayed, move the page-container back out of the way to the right
-    margin-left: 0;
+  .page-container {
+    &:not([data-menu-shown="false"]) {
+      // When the menu is displayed, move the page-container back out of the way to the right
+      margin-left: 0;
 
-    .fly-out-menu {
-      // Reset the translation when the viewport's wide enough to show the menu
-      transform: translateX(0);
+      & .fly-out-menu {
+        // Reset the translation when the viewport's wide enough to show the menu
+        transform: translateX(0);
+        & a {
+          display: unset;
+        }
+      }
     }
   }
 }
@@ -88,6 +93,14 @@ body {
   & a {
     color: inherit;
     width: inherit;
+
+    // Prevent links being tabable on offscreen menu. Is there a better way?
+    display: contents;
+
+    .page-container[data-menu-shown="true"] & {
+      // reinstate tabbable links on displayed menu
+      display: unset;
+    }
   }
 }
 
