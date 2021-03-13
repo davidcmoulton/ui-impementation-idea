@@ -130,7 +130,7 @@ body {
 }
 .page-container .fly-out-menu,
 .page-container[data-menu-shown=false] .fly-out-menu {
-  transform: translateX(-248px);
+  transform: -248px;
 }
 .page-container .fly-out-menu a,
 .page-container[data-menu-shown=false] .fly-out-menu a {
@@ -141,7 +141,7 @@ body {
   margin-left: 0;
 }
 .page-container[data-menu-shown=true] .fly-out-menu {
-  transform: translateX(0);
+  transform: 0;
 }
 .page-container[data-menu-shown=true] .fly-out-menu a {
   display: unset;
@@ -152,7 +152,7 @@ body {
     margin-left: 0;
   }
   .page-container:not([data-menu-shown=false]) .fly-out-menu {
-    transform: translateX(0);
+    transform: 0;
   }
   .page-container:not([data-menu-shown=false]) .fly-out-menu a {
     display: unset;

@@ -1,27 +1,42 @@
+@use 'sass:map';
 @use 'settings';
 
-@mixin hide-menu() {
-  margin-left: settings.$flyout-menu-offscreen-offset;
+@function getMenuConfig($state) {
+  $config: ();
+  @if $state == 'show' {
+    $config: (
+      'margin-left': 0,
+      'flyoutTranslateX': 0,
+      'menu-link-display': unset,
+    )
+  } @else if $state == 'hide' {
+    $config: (
+      'margin-left': settings.$flyout-menu-offscreen-offset,
+      'flyoutTranslateX': settings.$flyout-menu-offscreen-offset,
+      'menu-link-display': none,
+    )
+  }
+  @return $config;
+}
+
+@mixin flip-menu($state) {
+  margin-left: map.get(getMenuConfig($state), 'margin-left');
 
   .fly-out-menu {
-    transform: translateX(settings.$flyout-menu-offscreen-offset);
+    transform: map.get(getMenuConfig($state), 'flyoutTranslateX');
 
     a {
-      display: none;
+      display:  map.get(getMenuConfig($state), 'menu-link-display');
     }
   }
 }
 
+@mixin hide-menu() {
+  @include flip-menu(hide);
+}
+
 @mixin show-menu() {
-  margin-left: 0;
-
-  .fly-out-menu {
-    transform: translateX(0);
-
-    a {
-      display: unset;
-    }
-  }
+  @include flip-menu(show);
 }
 
 @mixin transition($property) {
