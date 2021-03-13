@@ -4,7 +4,7 @@
 
   const handleClick = () => {
     if (!pageContainer.dataset.menuShown) {
-      pageContainer.dataset.menuShown = window.matchMedia('(min-width: 700px)').matches ? 'false' : 'true';;
+      pageContainer.dataset.menuShown = window.matchMedia('(min-width: 700px)').matches ? 'false' : 'true';
     } else {
       pageContainer.dataset.menuShown = pageContainer.dataset.menuShown === 'true' ? 'false' : 'true';
     }
