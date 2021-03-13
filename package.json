@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "sass ./sass/:./"
+    "build": "sass ./sass/:./",
+    "start": "npm run build && npx http-server -o"
   },
   "keywords": [],
   "author": "",
