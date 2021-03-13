@@ -8,9 +8,9 @@
 
 .page-container {
   display: grid;
-  grid-template-columns: auto /* could also explicitly be the width of the flyout menu (248px, or $flyout-menu-offscreen-offset * -1) */
-                         settings.$fly-out-icon-side /* menu toggle control should not be bigger than necessary */
-                         1fr; /* all other space is allocated here */
+  grid-template-columns: auto // could also explicitly be the width of the flyout menu (248px, or $flyout-menu-offscreen-offset * -1) */
+                         settings.$fly-out-icon-side // menu toggle control should not be bigger than necessary
+                         1fr; // all other space is allocated here
 }
 
 // Second in the visual order (first in the source order - see HTML)
