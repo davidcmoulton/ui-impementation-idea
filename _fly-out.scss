@@ -27,7 +27,7 @@
   margin-left: map.get(getMenuConfig($state), 'container-margin-left');
 
   .fly-out-menu {
-    transform: map.get(getMenuConfig($state), 'menu-translateX');
+    transform: translateX(map.get(getMenuConfig($state), 'menu-translateX'));
 
     a {
       display:  map.get(getMenuConfig($state), 'menu-links-display');
