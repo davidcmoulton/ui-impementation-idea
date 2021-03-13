@@ -1,32 +1,36 @@
 @use 'sass:map';
 @use 'settings';
 
+// FUNCTIONS
+
 @function getMenuConfig($state) {
   $config: ();
   @if $state == 'show' {
     $config: (
-      'margin-left': 0,
-      'flyoutTranslateX': 0,
-      'menu-link-display': unset,
+      'container-margin-left': 0,
+      'menu-translateX': 0,
+      'menu-links-display': unset,
     )
   } @else if $state == 'hide' {
     $config: (
-      'margin-left': settings.$flyout-menu-offscreen-offset,
-      'flyoutTranslateX': settings.$flyout-menu-offscreen-offset,
-      'menu-link-display': none,
+      'container-margin-left': settings.$flyout-menu-offscreen-offset,
+      'menu-translateX': settings.$flyout-menu-offscreen-offset,
+      'menu-links-display': none,
     )
   }
   @return $config;
 }
 
+// MIXINS
+
 @mixin flip-menu($state) {
-  margin-left: map.get(getMenuConfig($state), 'margin-left');
+  margin-left: map.get(getMenuConfig($state), 'container-margin-left');
 
   .fly-out-menu {
-    transform: map.get(getMenuConfig($state), 'flyoutTranslateX');
+    transform: map.get(getMenuConfig($state), 'menu-translateX');
 
     a {
-      display:  map.get(getMenuConfig($state), 'menu-link-display');
+      display:  map.get(getMenuConfig($state), 'menu-links-display');
     }
   }
 }
@@ -43,6 +47,8 @@
   transition: $property settings.$transition-duration settings.$timing-function;
 }
 
+// STYLE RULES
+
 .page-container {
   @include transition(margin-left);
 }
@@ -51,7 +57,9 @@
   @include transition(transform);
 }
 
-// The viewport is narrow and the user hasn't interacted with the menu control yet, or the user has dismissed it
+// Show / hide logic
+
+// The viewport is narrow and the user hasn't interacted with the menu control yet, or the user has dismissed the menu
 .page-container,
 .page-container[data-menu-shown="false"] {
   @include hide-menu();
@@ -62,7 +70,7 @@
   @include show-menu();
 }
 
-// The viewport is wide and the user hasn't dismissed it
+// The viewport is wide and the user hasn't dismissed the menu
 .page-container:not([data-menu-shown="false"]) {
     @media screen and (min-width: settings.$breakpoint) {
       @include show-menu();
