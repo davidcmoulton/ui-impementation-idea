@@ -6,8 +6,9 @@ $colour-furniture: rgb(207, 216, 220);
 $colour-page-background: rgb(233, 235, 240);
 
 $flyout-menu-width: 200px;
-$flyout-menu-side-padding: 24px;
-$flyout-menu-offscreen-offset: -1 * ($flyout-menu-width + 2 * $flyout-menu-side-padding);
+$flyout-menu-inline-padding: 24px;
+$flyout-menu-list-block-padding: 24px;
+$flyout-menu-offscreen-offset: -1 * ($flyout-menu-width + 2 * $flyout-menu-inline-padding);
 
 $transition-duration: 200ms;
 $timing-function: ease-in-out;

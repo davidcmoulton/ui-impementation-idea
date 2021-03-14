@@ -43,9 +43,10 @@ body {
 
 .fly-out-menu {
   background-color: settings.$colour-text-primary;
+  padding-left: settings.$flyout-menu-inline-padding;
+  padding-right: settings.$flyout-menu-inline-padding;
   color: white;
   height: 100vh;
-  padding: settings.$flyout-menu-side-padding;
   width: settings.$flyout-menu-width;
 
   & a {
@@ -58,7 +59,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 95%;
+  padding-top: settings.$flyout-menu-list-block-padding;
+  padding-bottom: settings.$flyout-menu-list-block-padding;;
+  height: calc(100% - #{settings.$flyout-menu-list-block-padding});
 
   & > li {
     margin-bottom: 24px;
