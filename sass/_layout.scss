@@ -1,0 +1,56 @@
+@use 'settings';
+@use 'grid';
+
+.fly-out-toggle {
+  height: settings.$fly-out-icon-side;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-nav {
+  height: settings.$fly-out-icon-side;
+  display: flex;
+  align-items: center;
+}
+
+.top-nav-list {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.top-nav-list li {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.fly-out-menu {
+  height: 100vh;
+  width: settings.$flyout-menu-width;
+  padding-left: settings.$flyout-menu-inline-padding;
+  padding-right: settings.$flyout-menu-inline-padding;
+  position: sticky;
+  top: 0;
+  overflow: scroll;
+
+}
+
+.fly-out-menu-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: settings.$flyout-menu-list-block-padding;
+  padding-bottom: settings.$flyout-menu-list-block-padding;;
+  height: calc(100% - #{settings.$flyout-menu-list-block-padding});
+
+  & > li {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-top: auto;
+      align-self: center;
+    }
+  }
+}
