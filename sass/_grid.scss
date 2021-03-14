@@ -26,6 +26,7 @@
   align-self: start;
   position: sticky;
   top: 0;
+  overflow: scroll;
 }
 
 // Third in both visual order and source order. This rule is unnecessary, but may aid clarity
