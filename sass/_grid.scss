@@ -23,6 +23,9 @@
 .fly-out-menu {
   order: 1;
   grid-row: 1 / 4;
+  align-self: start;
+  position: sticky;
+  top: 0;
 }
 
 // Third in both visual order and source order. This rule is unnecessary, but may aid clarity
