@@ -1,0 +1,38 @@
+@use 'settings';
+
+// grid-template-columns sets the widths of the columns by grid order. This not the same as source order due to the
+// various 'order' rules that follow.
+// The aim is to get the visual order of elements to match the designs, while having a logical tab order that
+// follows the source order, and allows keyboard navigation to be a linear progression from the menu toggle to the
+// expanded menu. Also necessary for decent screen reader support.
+
+.page-container {
+  display: grid;
+  grid-template-columns: auto // could also explicitly be the width of the flyout menu (248px, or $flyout-menu-offscreen-offset * -1) */
+                         settings.$fly-out-icon-side // menu toggle control should not be bigger than necessary
+                         1fr; // all other space is allocated here
+}
+
+// Second in the visual order (first in the source order - see HTML)
+.fly-out-toggle {
+  order: 2;
+}
+
+// First in the visual order (second in the source order)
+// Span entire page height via grid rows
+.fly-out-menu {
+  order: 1;
+  grid-row: 1 / 4;
+  align-self: start;
+}
+
+// Third in both visual order and source order. This rule is unnecessary, but may aid clarity
+.top-nav {
+  order: 3;
+}
+
+.main-content {
+  // main content is on the second row, and spans all columns except the one holding the flyout menu
+  grid-row: 2;
+  grid-column: 2 / 4;
+}
