@@ -81,3 +81,7 @@ body {
   border: 1px solid settings.$colour-furniture;
   border-radius: 6px;
 }
+
+.main-content > :last-child {
+  margin-bottom: 0;
+}
