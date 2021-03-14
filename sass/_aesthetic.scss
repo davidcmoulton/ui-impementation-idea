@@ -1,5 +1,9 @@
 @use 'settings';
 
+@mixin top-nav-shadow() {
+  background-image:linear-gradient(0deg, rgb(233, 235, 240) 0, rgb(207, 216, 220) settings.$top-nav-shadow-height - 1, #fff settings.$top-nav-shadow-height)
+}
+
 body {
   background-color: settings.$colour-page-background;
 }
@@ -12,10 +16,12 @@ body {
 }
 
 .fly-out-toggle {
+  @include top-nav-shadow();
   background-color: white;
 }
 
 .top-nav {
+  @include top-nav-shadow();
   background-color: white;
 }
 
