@@ -48,7 +48,6 @@
   flex-direction: column;
   justify-content: flex-start;
   padding-top: settings.$flyout-menu-list-block-padding;
-  padding-bottom: settings.$flyout-menu-list-block-padding;;
   height: calc(100% - #{settings.$flyout-menu-list-block-padding});
 
   & > li {
