@@ -43,6 +43,14 @@ a {
   grid-column: 2/4;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+.page-container {
+  min-width: 360px;
+}
+
 .fly-out-toggle {
   height: 60px;
   padding-bottom: 9px;

@@ -1,6 +1,15 @@
 @use 'settings';
 @use 'grid';
 
+body {
+  overflow-x: hidden;
+}
+
+.page-container {
+  // Used with overflow-x: hidden on the <body> to prevent horizontal scroll on narrow viewport with displayed menu
+  min-width: 360px;
+}
+
 .fly-out-toggle {
   height: settings.$fly-out-icon-side;
   padding-bottom: settings.$top-nav-shadow-height;
