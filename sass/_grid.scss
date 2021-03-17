@@ -1,6 +1,12 @@
 @use 'settings';
 @use 'layout';
 
+@supports (display: grid) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
 // grid-template-columns sets the widths of the columns by grid order. This not the same as source order due to the
 // various 'order' rules that follow.
 // The aim is to get the visual order of elements to match the designs, while having a logical tab order that
@@ -40,9 +46,11 @@
   align-self: start;
 
   top: 0;
+  z-index: 5;
   position: fixed;
   @supports (display: grid) {
     position: sticky;
+    z-index: unset;
   }
 }
 
