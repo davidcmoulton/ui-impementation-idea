@@ -36,7 +36,9 @@
 }
 
 @mixin hide-menu() {
-  @include flip-menu(hide);
+  @supports (display: flex) {
+    @include flip-menu(hide);
+  }
 }
 
 @mixin show-menu() {

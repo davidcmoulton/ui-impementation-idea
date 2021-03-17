@@ -177,17 +177,19 @@ body {
   transition: transform 200ms ease-in-out;
 }
 
-.page-container,
+@supports (display: flex) {
+  .page-container,
 .page-container[data-menu-shown=false] {
-  margin-left: -248px;
-}
-.page-container .fly-out-menu,
+    margin-left: -248px;
+  }
+  .page-container .fly-out-menu,
 .page-container[data-menu-shown=false] .fly-out-menu {
-  transform: translateX(-248px);
-}
-.page-container .fly-out-menu a,
+    transform: translateX(-248px);
+  }
+  .page-container .fly-out-menu a,
 .page-container[data-menu-shown=false] .fly-out-menu a {
-  display: none;
+    display: none;
+  }
 }
 
 .page-container[data-menu-shown=true] {
