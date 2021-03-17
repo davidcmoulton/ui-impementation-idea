@@ -100,11 +100,13 @@ body {
 }
 
 .page-container {
+  max-width: 1200px;
   grid-template-columns: auto 60px 1fr;
 }
 @supports (display: grid) {
   .page-container {
     display: grid;
+    max-width: unset;
   }
 }
 
