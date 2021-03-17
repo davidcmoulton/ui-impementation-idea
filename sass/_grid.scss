@@ -1,4 +1,5 @@
 @use 'settings';
+@use 'layout';
 
 // grid-template-columns sets the widths of the columns by grid order. This not the same as source order due to the
 // various 'order' rules that follow.
@@ -7,7 +8,7 @@
 // expanded menu. Also necessary for decent screen reader support.
 
 .page-container {
-  display: grid;
+  @include layout.if-supported(grid);
   grid-template-columns: auto // could also explicitly be the width of the flyout menu (248px, or $flyout-menu-offscreen-offset * -1) */
                          settings.$fly-out-icon-side // menu toggle control should not be bigger than necessary
                          1fr; // all other space is allocated here
