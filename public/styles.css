@@ -155,7 +155,13 @@ a {
 @supports (display: grid) {
   .main-content {
     position: static;
+    max-width: unset;
   }
+}
+
+.main-content,
+.main-content * {
+  max-width: 800px;
 }
 
 body {

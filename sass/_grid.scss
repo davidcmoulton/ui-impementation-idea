@@ -81,5 +81,11 @@
   top: 84px;
   @supports (display: grid) {
     position: static;
+    max-width: unset;
   }
+}
+
+.main-content,
+.main-content * {
+  max-width: 800px;
 }
