@@ -44,16 +44,34 @@
   @supports (display: grid) {
     position: sticky;
   }
-
 }
 
 // Third in both visual order and source order. This rule is unnecessary, but may aid clarity
 .top-nav {
   order: 3;
+
+  top: 0;
+  position: fixed;
+  left: settings.$flyout-menu-offscreen-offset * -1;
+  width: 100%;
+  z-index: 2;
+  @supports (display: grid) {
+    position: sticky;
+    left: unset;
+    width: unset;
+    z-index: unset;
+  }
 }
 
 .main-content {
   // main content is on the second row, and spans all columns except the one holding the flyout menu
   grid-row: 2;
   grid-column: 2 / 4;
+
+  position: relative;
+  left: settings.$flyout-menu-offscreen-offset * -1;
+  top: 84px;
+  @supports (display: grid) {
+    position: static;
+  }
 }

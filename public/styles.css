@@ -34,8 +34,6 @@ body {
   height: 60px;
   padding-bottom: 9px;
   align-items: center;
-  position: sticky;
-  top: 0;
 }
 @supports (display: flex) {
   .top-nav {
@@ -129,11 +127,32 @@ body {
 
 .top-nav {
   order: 3;
+  top: 0;
+  position: fixed;
+  left: 248px;
+  width: 100%;
+  z-index: 2;
+}
+@supports (display: grid) {
+  .top-nav {
+    position: sticky;
+    left: unset;
+    width: unset;
+    z-index: unset;
+  }
 }
 
 .main-content {
   grid-row: 2;
   grid-column: 2/4;
+  position: relative;
+  left: 248px;
+  top: 84px;
+}
+@supports (display: grid) {
+  .main-content {
+    position: static;
+  }
 }
 
 body {

@@ -22,8 +22,6 @@ body {
   padding-bottom: settings.$top-nav-shadow-height;
   @include if-supported(flex);
   align-items: center;
-  position: sticky;
-  top: 0;
 }
 
 .top-nav-list {
