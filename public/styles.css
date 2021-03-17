@@ -28,13 +28,6 @@ body {
   padding-bottom: 9px;
   align-items: center;
   justify-content: center;
-  position: sticky;
-  top: 0;
-}
-@supports (display: flex) {
-  .fly-out-toggle {
-    display: flex;
-  }
 }
 
 .top-nav {
@@ -111,6 +104,14 @@ body {
 
 .fly-out-toggle {
   order: 2;
+  display: none;
+}
+@supports (display: grid) {
+  .fly-out-toggle {
+    top: 0;
+    position: sticky;
+    display: flex;
+  }
 }
 
 .fly-out-menu {

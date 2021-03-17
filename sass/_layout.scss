@@ -13,11 +13,8 @@ body {
 .fly-out-toggle {
   height: settings.$fly-out-icon-side;
   padding-bottom: settings.$top-nav-shadow-height;
-  @include if-supported(flex);
   align-items: center;
   justify-content: center;
-  position: sticky;
-  top: 0;
 }
 
 .top-nav {

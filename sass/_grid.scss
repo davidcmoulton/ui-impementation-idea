@@ -23,6 +23,13 @@
 // Second in the visual order (first in the source order - see HTML)
 .fly-out-toggle {
   order: 2;
+
+  display: none;
+  @supports (display: grid) {
+    top: 0;
+    position: sticky;
+    display: flex;
+  }
 }
 
 // First in the visual order (second in the source order)
