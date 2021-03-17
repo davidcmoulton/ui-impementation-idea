@@ -101,6 +101,7 @@ body {
 
 .page-container {
   max-width: 1200px;
+  position: relative;
   grid-template-columns: auto 60px 1fr;
 }
 @supports (display: grid) {

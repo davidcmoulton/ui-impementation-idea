@@ -9,6 +9,8 @@
 
 .page-container {
   max-width: settings.$max-width;
+  position: relative;
+
   @supports (display: grid) {
     display: grid;
     max-width: unset;
