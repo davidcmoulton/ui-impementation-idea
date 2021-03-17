@@ -31,6 +31,13 @@
   order: 1;
   grid-row: 1 / 4;
   align-self: start;
+
+  top: 0;
+  position: absolute;
+  @supports (display: grid) {
+    position: sticky;
+  }
+
 }
 
 // Third in both visual order and source order. This rule is unnecessary, but may aid clarity

@@ -71,8 +71,6 @@ body {
   width: 200px;
   padding-left: 24px;
   padding-right: 24px;
-  position: sticky;
-  top: 0;
   overflow: scroll;
 }
 
@@ -119,6 +117,13 @@ body {
   order: 1;
   grid-row: 1/4;
   align-self: start;
+  top: 0;
+  position: absolute;
+}
+@supports (display: grid) {
+  .fly-out-menu {
+    position: sticky;
+  }
 }
 
 .top-nav {
