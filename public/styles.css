@@ -119,7 +119,7 @@ body {
   grid-row: 1/4;
   align-self: start;
   top: 0;
-  position: absolute;
+  position: fixed;
 }
 @supports (display: grid) {
   .fly-out-menu {

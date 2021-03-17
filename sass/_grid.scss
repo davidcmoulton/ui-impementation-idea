@@ -40,7 +40,7 @@
   align-self: start;
 
   top: 0;
-  position: absolute;
+  position: fixed;
   @supports (display: grid) {
     position: sticky;
   }
