@@ -85,7 +85,7 @@ body {
   padding-right: 24px;
   position: sticky;
   top: 0;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .fly-out-menu-list {
