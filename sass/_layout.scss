@@ -30,6 +30,13 @@
 .top-nav-list li {
   padding-left: 12px;
   padding-right: 12px;
+
+  padding-top: 18px;
+  float: right;
+  @supports (display: grid) {
+    float: none;
+    padding-top: 0;
+  }
 }
 
 .fly-out-menu {

@@ -62,11 +62,13 @@
   position: fixed;
   left: settings.$flyout-menu-offscreen-offset * -1;
   width: 100%;
+  max-width: 873px;
   z-index: 2;
   @supports (display: grid) {
     position: sticky;
     left: unset;
     width: unset;
+    max-width: unset;
     z-index: unset;
   }
 }
