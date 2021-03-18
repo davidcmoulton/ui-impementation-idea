@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>F1F74A6A-A208-42F1-9437-664DC54F65B4</title>
+    <g id="Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="drawer-mobile-no-js" transform="translate(-817.000000, -167.000000)">
+            <g id="new/navbar-mobile" transform="translate(795.000000, 112.000000)">
+                <g id="menu-no-js-close" transform="translate(22.000000, 55.000000)">
+                    <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="26" height="26"></rect>
+                    <path d="M1.6862915,11.5857864 L24.3137085,11.5857864 C25.0947571,11.5857864 25.7279221,12.2189514 25.7279221,13 C25.7279221,13.7810486 25.0947571,14.4142136 24.3137085,14.4142136 L1.6862915,14.4142136 C0.905242918,14.4142136 0.272077939,13.7810486 0.272077939,13 C0.272077939,12.2189514 0.905242918,11.5857864 1.6862915,11.5857864 Z" id="Rectangle" fill="#34434A" transform="translate(13.000000, 13.000000) rotate(45.000000) translate(-13.000000, -13.000000) "></path>
+                    <path d="M13,0.272077939 C13.7810486,0.272077939 14.4142136,0.905242918 14.4142136,1.6862915 L14.4142136,24.3137085 C14.4142136,25.0947571 13.7810486,25.7279221 13,25.7279221 C12.2189514,25.7279221 11.5857864,25.0947571 11.5857864,24.3137085 L11.5857864,1.6862915 C11.5857864,0.905242918 12.2189514,0.272077939 13,0.272077939 Z" id="Rectangle" fill="#34434A" transform="translate(13.000000, 13.000000) rotate(45.000000) translate(-13.000000, -13.000000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

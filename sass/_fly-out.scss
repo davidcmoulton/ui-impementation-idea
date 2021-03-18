@@ -60,7 +60,7 @@
 // Show / hide logic
 
 // The viewport is narrow and the user hasn't interacted with the menu control yet, or the user has dismissed the menu
-.page-container,
+.page-container:not(.page-container--menu),
 .page-container[data-menu-shown="false"] {
   @include hide-menu();
 }

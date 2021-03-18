@@ -12,6 +12,12 @@
   overflow: hidden;
 }
 
+@mixin shadow-if-not-menu-page() {
+  .page-container:not(.page-container--menu) & {
+    @include top-nav-shadow();
+  }
+}
+
 body {
   background-color: settings.$colour-page-background;
 }
@@ -23,13 +29,9 @@ body {
   padding: 6px 8px 5px;
 }
 
-.fly-out-toggle {
-  @include top-nav-shadow();
-  background-color: white;
-}
-
+.fly-out-toggle,
 .top-nav {
-  @include top-nav-shadow();
+  @include shadow-if-not-menu-page();
   background-color: white;
 }
 
@@ -39,7 +41,6 @@ body {
 
   & a {
     color: inherit;
-    width: inherit;
   }
 }
 

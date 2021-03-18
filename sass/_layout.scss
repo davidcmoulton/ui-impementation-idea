@@ -5,23 +5,27 @@ body {
   overflow-x: hidden;
 }
 
-.fly-out-toggle {
+@mixin padding-if-not-menu-page() {
+  .page-container:not(.page-container--menu) & {
+    padding-bottom: settings.$top-nav-shadow-height;
+  }
+}
+
+.fly-out-toggle,
+.top-nav {
+  @include padding-if-not-menu-page();
   height: settings.$fly-out-icon-side;
-  padding-bottom: settings.$top-nav-shadow-height;
   display: flex;
   align-items: center;
   justify-content: center;
   position: sticky;
   top: 0;
+  z-index: 2;
 }
 
-.top-nav {
-  height: settings.$fly-out-icon-side;
-  padding-bottom: settings.$top-nav-shadow-height;
-  display: flex;
-  align-items: center;
-  position: sticky;
-  top: 0;
+.fly-out-toggle {
+  width: settings.$fly-out-icon-side;
+  justify-content: center;
 }
 
 .top-nav-list {
@@ -39,10 +43,20 @@ body {
 .fly-out-menu {
   height: 100vh;
   width: settings.$flyout-menu-width;
-  position: sticky;
-  top: 0;
   overflow: auto;
 
+  .page-container:not(.page-container--menu) & {
+    position: sticky;
+    top: 0;
+  }
+}
+
+.menu-title {
+  padding-left: 24px;
+}
+
+.fly-out-menu a {
+  width: inherit;
 }
 
 .fly-out-menu-list {
@@ -55,6 +69,11 @@ body {
   padding-right: settings.$flyout-menu-inline-padding;
   height: settings.$flyout-menu-list-height;
   overflow: auto;
+
+  .page-container--menu & {
+    overflow: auto;
+    height: auto;
+  }
 
   & > li {
     margin-bottom: 24px;
