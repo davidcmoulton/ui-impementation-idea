@@ -75,10 +75,6 @@ body {
   margin-bottom: settings.$feedback-button-bottom-margin;
 }
 
-.fly-out-menu__footer__link {
-  text-decoration: underline;
-}
-
 .main-content {
   // Used with overflow-x: hidden on the <body> to prevent horizontal scroll on narrow viewport with displayed menu
   min-width: 360px;

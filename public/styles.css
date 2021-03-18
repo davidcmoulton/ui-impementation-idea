@@ -80,7 +80,7 @@ body {
 
 .fly-out-menu {
   height: 100vh;
-  width: 200px;
+  width: 248px;
   position: sticky;
   top: 0;
   overflow: auto;
@@ -112,10 +112,6 @@ body {
 
 .button--feedback {
   margin-bottom: 12px;
-}
-
-.fly-out-menu__footer__link {
-  text-decoration: underline;
 }
 
 .main-content {
@@ -169,6 +165,10 @@ body {
 
 .main-content > :last-child {
   margin-bottom: 0;
+}
+
+.fly-out-menu__footer__link {
+  text-decoration: underline;
 }
 
 .page-container {

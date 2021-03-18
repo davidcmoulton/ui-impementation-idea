@@ -8,11 +8,10 @@ $colour-text-primary: rgb(52, 67, 74);
 $colour-furniture: rgb(207, 216, 220);
 $colour-page-background: rgb(233, 235, 240);
 
-$flyout-menu-width: 200px;
+$flyout-menu-width: 248px;
 $flyout-menu-inline-padding: 24px;
 $flyout-menu-list-block-padding: 24px;
-$flyout-menu-offscreen-offset: -1 * ($flyout-menu-width + 2 * $flyout-menu-inline-padding);
-// Wouldn't need to include padding here if had used border-box
+$flyout-menu-offscreen-offset: -1 * $flyout-menu-width;
 $flyout-menu-list-height: calc(100% - #{$flyout-menu-footer-height-including-margins} - #{$flyout-menu-list-block-padding});
 $flyout-menu-footer-block-margin: 12px;
 $top-nav-shadow-height: 9px;
