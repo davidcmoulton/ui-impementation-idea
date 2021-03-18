@@ -52,16 +52,29 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   padding-top: settings.$flyout-menu-list-block-padding;
-  height: calc(100% - #{settings.$flyout-menu-list-block-padding});
+  //height: calc(100% - #{settings.$flyout-menu-list-block-padding});
+  height: settings.$flyout-menu-list-height;
+  overflow: auto;
 
   & > li {
     margin-bottom: 24px;
-
-    &:last-child {
-      margin-top: auto;
-      align-self: center;
-    }
   }
+}
+
+.fly-out-menu__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: settings.$flyout-menu-footer-block-margin;
+  margin-bottom: settings.$flyout-menu-footer-block-margin;
+}
+
+.button--feedback {
+  margin-bottom: settings.$feedback-button-bottom-margin;
+}
+
+.fly-out-menu__footer__link {
+  text-decoration: underline;
 }
 
 .main-content {

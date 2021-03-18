@@ -1,3 +1,6 @@
+// Don't really do the next 1, used here to illustrate relationships
+$flyout-menu-footer-height-including-margins: 74px;
+
 $fly-out-icon-side: 60px;
 $top-nav-height: 60px;
 $colour-accent: rgb(206, 72, 26);
@@ -9,7 +12,12 @@ $flyout-menu-width: 200px;
 $flyout-menu-inline-padding: 24px;
 $flyout-menu-list-block-padding: 24px;
 $flyout-menu-offscreen-offset: -1 * ($flyout-menu-width + 2 * $flyout-menu-inline-padding);
+// Wouldn't need to include padding here if had used border-box
+$flyout-menu-list-height: calc(100% - #{$flyout-menu-footer-height-including-margins} - #{$flyout-menu-list-block-padding});
+$flyout-menu-footer-block-margin: 12px;
 $top-nav-shadow-height: 9px;
+
+$feedback-button-bottom-margin: 12px;
 
 $transition-duration: 200ms;
 $timing-function: ease-in-out;
