@@ -29,7 +29,7 @@
   .fly-out-menu {
     transform: translateX(map.get(getMenuConfig($state), 'menu-translateX'));
 
-    a {
+    li {
       display:  map.get(getMenuConfig($state), 'menu-links-display');
     }
   }

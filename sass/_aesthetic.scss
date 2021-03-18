@@ -4,6 +4,14 @@
   background-image:linear-gradient(0deg, rgb(233, 235, 240) 0, rgb(207, 216, 220) settings.$top-nav-shadow-height - 1, #fff settings.$top-nav-shadow-height)
 }
 
+// Hacky but reliable until support improves https://caniuse.com/css-line-clamp
+@mixin clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 body {
   background-color: settings.$colour-page-background;
 }
@@ -33,6 +41,10 @@ body {
     color: inherit;
     width: inherit;
   }
+}
+
+.fly-out-menu-list > li > a {
+  @include clamp(2);
 }
 
 // Arbitrary, could be anything
