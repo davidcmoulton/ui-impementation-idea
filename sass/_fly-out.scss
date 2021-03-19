@@ -30,7 +30,9 @@
   .fly-out-menu {
     transform: translateX(map.get(getMenuConfig($state), 'menu-translateX'));
 
-    li {
+    li,
+    // Extra specifificty to override .fly-out-menu__footer styles
+    footer.fly-out-menu__footer {
       display:  map.get(getMenuConfig($state), 'menu-links-display');
     }
   }
