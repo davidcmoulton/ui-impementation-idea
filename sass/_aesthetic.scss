@@ -1,5 +1,17 @@
 @use 'settings';
 
+@mixin visually-hidden() {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  user-select: none;
+}
+
 @mixin top-nav-shadow() {
   background-image:linear-gradient(0deg, rgb(233, 235, 240) 0, rgb(207, 216, 220) settings.$top-nav-shadow-height - 1, #fff settings.$top-nav-shadow-height)
 }
@@ -42,6 +54,10 @@ body {
   & a {
     color: inherit;
   }
+}
+
+.visually-hidden {
+  @include visually-hidden();
 }
 
 .fly-out-menu-list > li > a {

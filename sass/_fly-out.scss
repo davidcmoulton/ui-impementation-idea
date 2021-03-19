@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use 'settings';
+@use 'aesthetic';
 
 // FUNCTIONS
 
@@ -47,6 +48,22 @@
   transition: $property settings.$transition-duration settings.$timing-function;
 }
 
+// Set content on this for screen reader to announce menu toggle stuff
+@mixin label-toggle-as($label-state) {
+  & .fly-out-toggle::before {
+    @include aesthetic.visually-hidden();
+    content: '#{$label-state} the following menu';
+  }
+}
+
+@mixin label-toggle-to-show-menu() {
+  @include label-toggle-as('Show');
+}
+
+@mixin label-toggle-to-hide-menu() {
+  @include label-toggle-as('Hide');
+}
+
 // STYLE RULES
 
 .page-container {
@@ -55,6 +72,11 @@
 
 .fly-out-menu {
   @include transition(transform);
+
+  &::before {
+    @include aesthetic.visually-hidden();
+    display: block;
+  }
 }
 
 // Show / hide logic
@@ -63,16 +85,19 @@
 .page-container:not(.page-container--menu),
 .page-container[data-menu-shown="false"] {
   @include hide-menu();
+  @include label-toggle-to-show-menu();
 }
 
 // The user has invoked the menu
 .page-container[data-menu-shown="true"] {
   @include show-menu();
+  @include label-toggle-to-hide-menu();
 }
 
 // The viewport is wide and the user hasn't dismissed the menu
 .page-container:not([data-menu-shown="false"]) {
     @media screen and (min-width: settings.$breakpoint) {
       @include show-menu();
-  }
+      @include label-toggle-to-hide-menu();
+    }
 }

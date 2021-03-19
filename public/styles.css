@@ -175,6 +175,18 @@ body {
   color: inherit;
 }
 
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  user-select: none;
+}
+
 .fly-out-menu-list > li > a {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -205,6 +217,18 @@ body {
 .fly-out-menu {
   transition: transform 200ms ease-in-out;
 }
+.fly-out-menu::before {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  user-select: none;
+  display: block;
+}
 
 .page-container:not(.page-container--menu),
 .page-container[data-menu-shown=false] {
@@ -218,6 +242,19 @@ body {
 .page-container[data-menu-shown=false] .fly-out-menu li {
   display: none;
 }
+.page-container:not(.page-container--menu) .fly-out-toggle::before,
+.page-container[data-menu-shown=false] .fly-out-toggle::before {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  user-select: none;
+  content: "Show the following menu";
+}
 
 .page-container[data-menu-shown=true] {
   margin-left: 0;
@@ -227,6 +264,18 @@ body {
 }
 .page-container[data-menu-shown=true] .fly-out-menu li {
   display: unset;
+}
+.page-container[data-menu-shown=true] .fly-out-toggle::before {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  user-select: none;
+  content: "Hide the following menu";
 }
 
 @media screen and (min-width: 720px) {
@@ -238,6 +287,18 @@ body {
   }
   .page-container:not([data-menu-shown=false]) .fly-out-menu li {
     display: unset;
+  }
+  .page-container:not([data-menu-shown=false]) .fly-out-toggle::before {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    user-select: none;
+    content: "Hide the following menu";
   }
 }
 
